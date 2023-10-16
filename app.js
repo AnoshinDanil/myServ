@@ -2,7 +2,6 @@ var express = require('express');
 const mongoose = require("mongoose");
 const cors = require("cors")
 const { handleError } = require('./public/javascripts/handleError')
-var indexRouter = require('./routes/index');
 const { serverStart } = require('./public/javascripts/user.service');
 
 var app = express();
@@ -26,7 +25,6 @@ const mon = `mongodb://${'localhost'}:27017/${dbName}`
 // view engine setup
 app.use(express.json());
 
-app.use('/', indexRouter);
 app.use('/users', require('./public/javascripts/user.router') )
 
 // catch 404 and forward to error handler
